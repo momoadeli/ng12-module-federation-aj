@@ -12,13 +12,13 @@ export class DynamicLoader {
         private componentFactoryResolver: ComponentFactoryResolver
     ) { }
 
-    public loadModule({ module, path }: { module: string, path: string }) {
+    public loadModule({ module, path }: { module: string, path: string; }) {
         const cdnUrl = 'http://localhost:8080';
         const appDetail = {
             path: '/remote/remoteEntry.js',
             name: 'remote',
             module: `./${module}`
-        }
+        };
         loadRemoteModule({
             remoteEntry: `${cdnUrl}${appDetail.path}`,
             remoteName: appDetail.name,
@@ -32,12 +32,15 @@ export class DynamicLoader {
                 });
                 this.router.resetConfig(config);
                 this.router.navigateByUrl(path);
-            })
+            });
     }
 
     public loadComponent(viewContainerRef: ViewContainerRef,
-        appDetail: { path: string; name: string; component: string; remoteComponent: string; input?: Record<string,string>,
-            output?: Record<string, any>}) {
+        appDetail: {
+            path: string; name: string; component: string; remoteComponent: string; input?: Record<string, string>,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            output?: Record<string, any>;
+        }) {
         const cdnUrl = 'http://localhost:8080';
         if (!appDetail) return;
         loadRemoteModule({
@@ -48,13 +51,13 @@ export class DynamicLoader {
             .then(m => {
                 const componentFactory = this.componentFactoryResolver.resolveComponentFactory(m[appDetail.component]);
                 viewContainerRef.clear();
-                const component =  viewContainerRef.createComponent(componentFactory);
-                for(const input of Object.keys(appDetail.input)){
+                const component = viewContainerRef.createComponent(componentFactory);
+                for (const input of Object.keys(appDetail.input)) {
                     component.instance[input] = appDetail.input[input];
                 }
-                for(const output of Object.keys(appDetail.output)){
+                for (const output of Object.keys(appDetail.output)) {
                     component.instance[output].subscribe(appDetail.output[output]);
                 }
-            })
+            });
     }
 }
