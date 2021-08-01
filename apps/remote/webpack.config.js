@@ -4,7 +4,7 @@ const path = require('path');
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
-  '@ng12-module-fed/corelib',
+  // '@ng12-module-fed/corelib',
 ]);
 
 module.exports = {
