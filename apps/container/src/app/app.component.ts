@@ -35,9 +35,9 @@ export class AppComponent implements OnInit {
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    // this.loader.loadModule({ module: 'RemoteAnimateModule', path: '/animate' });
-    // setTimeout(() => {
-    //   this.loader.loadModule({ module: 'RemoteModule', path: '/search' });
-    // }, 10000);
+    this.loader.loadModule({ module: 'RemoteAnimateModule', path: '/animate' });
+    setTimeout(() => {
+      this.loader.loadModule({ module: 'RemoteModule', path: '/search' });
+    }, 4000);
   }
 }
