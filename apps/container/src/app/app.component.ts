@@ -20,11 +20,11 @@ export class AppComponent implements OnInit {
       },
     },
   };
-  // leftnavDetail = {
-  //   path: '/leftnav/leftNav.js',
-  //   name: 'leftnav',
-  //   component: 'LeftNavComponent',
-  // };
+  leftnavDetail = {
+    path: '/leftnav/leftNav.js',
+    name: 'leftnav',
+    component: 'LeftNavComponent',
+  };
 
   constructor(
     private sharedService: SharedService,

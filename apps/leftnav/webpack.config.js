@@ -23,11 +23,11 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       // For remotes (please adjust)
-      // name: 'leftnav',
-      // filename: 'leftNav.js',
-      // exposes: {
-      //   './LeftNavComponent': './apps/leftnav/src/app/app.component.ts',
-      // },
+      name: 'leftnav',
+      filename: 'leftNav.js',
+      exposes: {
+        './LeftNavComponent': './apps/leftnav/src/app/app.component.ts',
+      },
 
       // For hosts (please adjust)
       // remotes: {
