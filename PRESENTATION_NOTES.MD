@@ -38,12 +38,13 @@ Now But not enough...need to SERVE it:
 GOTO network tab and show remoteEntry.js sis being served from local:8080
 
 Goto lib/sharedservice and discuss singleton or not via Angular devtools
-1. goto container -> app.component.ts: ctor: this.sharedService.id = 'container';
-2. goto: remote -> remote.component.ts ctor this.sharedService.id = 'remote';
+1. change branch to NOT SINGLETON
+2. 3. goto container -> app.component.ts: ctor: this.sharedService.id = 'container';
+4. goto: remote -> remote.component.ts ctor this.sharedService.id = 'remote';
+   1. show in devtools
 SINGLETON: no code change duplicated (mm: 14:09)
-1. change branch to NOT singleton
-2. NOT SINGLETON: 
-   1. goto tsconfig.base.json a path where alias and source to lib is indicated
-   2. add this alias to shared mappings for both remote and 
+1. change branch to singleton
+2. SINGLETON: 
+   1. show in devtools
 
 
