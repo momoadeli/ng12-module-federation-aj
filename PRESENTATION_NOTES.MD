@@ -1,3 +1,5 @@
+!BRANCH! change branch to NOT SINGLETON
+
 1. create apps (eg left nav) to the broader workspace
 2. ng add angular-architects ALL <app name> to update
 3. ALL apps: leftnav, remote, container
@@ -11,7 +13,7 @@
 
 Start with module format in remotes webpack.config.json
 
-1. goto remote webpack.coinfig.json
+1. goto remote webpack.config.json
 2. uncomment the expose modules: TWO MODULES are exposed!!
 3. describe romoute.module.ts and remote routes
 4. describe remote.component.html
@@ -35,16 +37,35 @@ Now But not enough...need to SERVE it:
 1. go to dist/app and run http-server .
 2. !!!run local:4200 and see the 'search route'!!!!
 
-GOTO network tab and show remoteEntry.js sis being served from local:8080
+GOTO network tab and show remoteEntry.js is being served from local:8080
 
 Goto lib/sharedservice and discuss singleton or not via Angular devtools
-1. change branch to NOT SINGLETON
 2. 3. goto container -> app.component.ts: ctor: this.sharedService.id = 'container';
 4. goto: remote -> remote.component.ts ctor this.sharedService.id = 'remote';
    1. show in devtools
+!BRANCH! change branch to singleton
 SINGLETON: no code change duplicated (mm: 14:09)
-1. change branch to singleton
-2. SINGLETON: 
+1. SINGLETON: 
    1. show in devtools
 
+!BRANCH! change branch to nav-component
+
+1. goto remote webpack.config.ts
+2. note module has been replaced by component
+   1. note refer to remote.component.ts instead of remote.module.ts
+3. goto leftnav webpack.config.ts
+   1. note compoenent has been exposed
+   2. note it points to app.component.ts
+4. So now we have TWO remote components we can add to our host container
+   1. goto container --> app.component and show how router-outlet has been replaced by  mdirectives
+   2. describe the directive and how it uses the loadComponent call in the dynamic loader service
+
+REBUILD:
+1. remote: nx build --configuration=development remote
+2. levtnav: nx build --configuration=development leftnav
+3. restart http-server
+
+RUN: 
+1. note the navigation component that is served from 8080 server is now running on 4200 (container)
+2. 2. Note this navigation can be a breadcrumb that can be custom called by client apps.
 
