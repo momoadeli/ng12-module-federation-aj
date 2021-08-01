@@ -10,7 +10,7 @@ import logo from '../../assets/nx-logo-white.svg';
 export class RemoteComponent {
   @Input() name: string;
   @Output() emitclick = new EventEmitter();
-  title = 'remote';
+  title = 'Bond Allocation';
   logo = logo;
   constructor(private sharedService: SharedService) {
     this.sharedService.id = 'remote';
