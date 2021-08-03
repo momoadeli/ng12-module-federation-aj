@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     path: '/remote/remoteEntry.js',
     name: 'remote',
     component: 'RemoteComponent',
-    input: { name: 'Anuroop' },
+    input: { name: 'Mo Moadeli' },
     output: {
       emitclick: () => {
         console.log('star clicked');
