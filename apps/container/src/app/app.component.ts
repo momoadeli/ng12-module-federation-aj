@@ -38,6 +38,6 @@ export class AppComponent implements OnInit {
     this.loader.loadModule({ module: 'RemoteAnimateModule', path: '/animate' });
     setTimeout(() => {
       this.loader.loadModule({ module: 'RemoteModule', path: '/search' });
-    }, 4000);
+    }, 7000);
   }
 }
